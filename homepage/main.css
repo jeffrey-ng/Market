@@ -1,0 +1,28 @@
+.nav a {
+	padding: 15px 15px;
+}
+.nav li {
+	display: inline;
+}
+.search {
+	background-color: #2b2d2e;
+}
+.search p {
+	padding-top: 9px;
+}
+.jumbotron {
+	background-image: url('imgs/sky.jpg');
+	height: 500px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #ffffff;
+}
+.row {
+	text-align: center;
+	height: 700px;
+}
+.footer {
+	height: 120px;
+	background-color: #2b2d2e;
+	color: #ffffff;
+}
