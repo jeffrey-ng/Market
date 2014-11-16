@@ -10,8 +10,8 @@ Meteor.startup(function() {
     language: 'en',
     showSignupCode: false,
     extraSignUpFields: [{
-      field: "name",
-      label: "Your Name",
+      field: "fullName",
+      label: "Yous Name",
       type: "text",
       required: true
     }]

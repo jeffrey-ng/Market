@@ -26,6 +26,12 @@ Router.map(function() {
       return Meteor.user();
     }
   });
+  this.route('editProfile', {
+    path: '/profile/edit',
+    data: function() {
+      return Meteor.user();
+    }
+  });
 
   this.route('notFound', {
     path: '*',
