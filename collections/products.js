@@ -4,10 +4,10 @@ Products = new Mongo.Collection('products');
 Schemas={}
 
 Schemas.Product = new SimpleSchema({
-    _id: {
-        type: String,
-        regEx: SimpleSchema.RegEx.Id
-    },
+    // _id: {
+    //     type: String,
+    //     regEx: SimpleSchema.RegEx.Id
+    // },
     name: {
         type: String,
         optional:false
