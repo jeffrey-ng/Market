@@ -1,7 +1,7 @@
 Products = new Mongo.Collection('products');
 // GroundDB(Products);
 
-Schemas={}
+Schemas = {};
 
 Schemas.Product = new SimpleSchema({
 
