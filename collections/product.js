@@ -1,4 +1,4 @@
-Products = new Meteor.Collection('products');
+Products = new Mongo.Collection('products');
 GroundDB(Products);
 
 Schemas={}
@@ -8,7 +8,11 @@ Schemas.Product = new SimpleSchema({
         type: String,
         regEx: SimpleSchema.RegEx.Id
     },
-   name: {
+    name: {
+        type: String,
+        optional:false
+    },
+   price: {
     type: Number,
     min: 0,
     decimal: true,
@@ -21,7 +25,7 @@ Schemas.Product = new SimpleSchema({
     label: 'Quantity'
    },
 
-   userId: {
+   createdBy: {
         type: String,
         optional: false
    },
