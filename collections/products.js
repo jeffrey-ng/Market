@@ -1,5 +1,5 @@
 Products = new Mongo.Collection('products');
-GroundDB(Products);
+// GroundDB(Products);
 
 Schemas={}
 
@@ -27,7 +27,7 @@ Schemas.Product = new SimpleSchema({
 
    createdBy: {
         type: String,
-        optional: false
+        optional: true
    },
 
    createdAt: {
@@ -45,3 +45,4 @@ Schemas.Product = new SimpleSchema({
 });
 
 Products.attachSchema(Schemas.Product);
+
