@@ -1,13 +1,14 @@
 Products = new Mongo.Collection('products');
-GroundDB(Products);
+// GroundDB(Products);
 
 Schemas={}
 
 Schemas.Product = new SimpleSchema({
-    _id: {
-      type: String,
-      regEx: SimpleSchema.RegEx.Id
-    },
+
+    // _id: {
+    //     type: String,
+    //     regEx: SimpleSchema.RegEx.Id
+    // },
 
     name: {
       type: String,
@@ -52,3 +53,4 @@ Schemas.Product = new SimpleSchema({
 });
 
 Products.attachSchema(Schemas.Product);
+

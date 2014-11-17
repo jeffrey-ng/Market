@@ -5,6 +5,20 @@ Meteor.startup(function() {
     rating: function() { return _.random(1, 5); }
   });
 
+  Factory.define('product', Products, {
+    name: function() { return Fake.sentence();},
+    price: function() { return _.random(1, 5); },
+    quantity: function() { return _.random(1, 5); }
+
+  })
+
+if (Products.find({}).count() === 0) {
+_(10).times(function(n) {
+      Factory.create('product');
+    });
+}
+
+
   if (Items.find({}).count() === 0) {
 
     _(10).times(function(n) {

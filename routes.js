@@ -21,13 +21,23 @@ Router.map(function() {
   });
 
   this.route('profile', {
-    path: '/profile',
+    path: '/profile/:_id',
+    name: 'profile',
     data: function() {
-      return Meteor.user();
+      return Meteor.users.findOne(this.params._id);
     }
   });
+
   this.route('editProfile', {
-    path: '/profile/edit',
+    path: '/profile/:_id/edit',
+    name: 'editProfile',
+    data: function() {
+      return Meteor.users.findOne(this.params._id);
+    }
+  });
+
+  this.route('createProduct', {
+    path: '/create',
     data: function() {
       return Meteor.user();
     }
