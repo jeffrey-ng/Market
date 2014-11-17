@@ -1,0 +1,1 @@
+Session.setDefault('creating_product',false);
