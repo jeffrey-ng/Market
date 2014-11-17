@@ -11,6 +11,12 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="{{pathFor 'home'}}">{{ siteTitle }}</a>
+         {{#if currentUser}}
+          <ul class="nav navbar-nav navbar-left">
+             <li class="{{ isActiveRoute 'createProduct' }}"><a href="{{ pathFor 'createProduct' }}"><i class="fa fa-plus"></i> Create Product</a></li>
+        </ul>
+        {{/if}}
+
       </div>
 
       <div class="collapse navbar-collapse" id="main-nav">
@@ -21,7 +27,7 @@
                 <i class="fa fa-user"></i> {{ currentUser.profile.fullName }} <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ pathFor 'profile' }}"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="{{ pathFor 'profile' _id=currentUser._id}}"><i class="fa fa-user"></i> Profile</a></li>
                 <li><a href="{{ pathFor 'entrySignOut' }}" data-action="logout"><i class="fa fa-lock"></i> Sign Out</a></li>
               </ul>
             </li>
