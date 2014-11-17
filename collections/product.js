@@ -16,7 +16,7 @@ Schemas.Product = new SimpleSchema({
     type: Number,
     min: 0,
     decimal: true,
-    label: 'Price"'
+    label: 'Price'
    },
 
    quantity: {
