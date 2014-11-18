@@ -3,13 +3,14 @@ Meteor.methods({
         Meteor.users.update({_id: userId}, {$set: {'profile.fullName': fullName, 'profile.website': website, 'profile.bio':bio}});
 
     },
-    createProduct: function(userId, productName, price, number) {
+    createProduct: function(userId, productName, price, number, description) {
         console.log("insertgin");
         Products.insert({
             createdBy: userId,
             name: productName,
             quantity: number,
-            price: price
+            price: price,
+            description: description
         });
     }
 });
