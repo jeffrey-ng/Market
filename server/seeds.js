@@ -8,7 +8,8 @@ Meteor.startup(function() {
   Factory.define('product', Products, {
     name: function() { return Fake.sentence();},
     price: function() { return _.random(1, 5); },
-    quantity: function() { return _.random(1, 5); }
+    quantity: function() { return _.random(1, 5); },
+    description: function() { return Fake.sentence();}
 
   })
 
