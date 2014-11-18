@@ -4,11 +4,15 @@
       <h4>Edit My Information</h4>
       <form role="form" id="editProfileForm">
         <div class="form-group">
-          <label for="edit-fullName">Nome Completo</label>
+          <label for="edit-fullName">Full Name</label>
           <input type="text" class="form-control" id="edit-fullName" placeholder="Full Name" value="{{profile.fullName}}">
+          <label for="edit-website">Website</label>
+          <input type="text" class="form-control" id="edit-website" placeholder="Website" value="{{profile.website}}">
+          <label for="edit-bio">Bio</label>
+          <input type="text" class="form-control" id="edit-bio" placeholder="Bio" value="{{profile.bio}}">
         </div>
         <hr>
-        <button type="submit" class="btn btn-default"><i class="fa fa-floppy-o"></i> Submit</button> <a href="{{ pathFor 'profile'}}" class="btn btn-danger"><i class="fa fa-times"></i> Cancel</a>
+        <button type="Submit" class="btn btn-default"><i class="fa fa-floppy-o"></i> Submit</button> <a href="{{ pathFor 'profile'}}" class="btn btn-danger"><i class="fa fa-times"></i> Cancel</a>
       </form>
     </div>
   </div>
