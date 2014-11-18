@@ -1,14 +1,19 @@
 <template name="productDetails">
 
-<!--
     <h4>{{name}}</h4>
-    {{price}}
+    
+    ${{price}}
+    
     <div class="productDescription">
+    	Description:<br/>
     	{{description}}
     </div>
-    <div class="itemAvailability">
-	    foo
-    </div>
--->
+    
+    {{#if quantity}}
+    	<div class="itemAvailability"> Quantity: {{quantity}} </div>
+    	{{> buyProduct}}
+    {{else}}
+    	<div class="itemAvailability"> Sold Out! </div>
+    {{/if}}
     
 </template>

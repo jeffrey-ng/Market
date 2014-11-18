@@ -46,6 +46,14 @@ Router.map(function() {
     }
   });
 
+  this.route('productDetails', {
+    path: '/product/:_id',
+    name: 'product',
+    data: function() {
+      return Meteor.products.findOne(this.params._id);
+    }
+  });
+
   this.route('notFound', {
     path: '*',
     where: 'server',
