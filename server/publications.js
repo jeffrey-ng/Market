@@ -13,3 +13,19 @@ Meteor.publishComposite("items", function() {
     // ]
   }
 });
+
+Meteor.publishComposite("products", function() {
+  return {
+    find: function() {
+      return Products.find({},{sort: {createdAt: -1}, limit: 8});
+    }
+    // ,
+    // children: [
+    //   {
+    //     find: function(item) {
+    //       return [];
+    //     }
+    //   }
+    // ]
+  }
+});

@@ -1,7 +1,10 @@
 Router.map(function() {
 
   this.route('home', {
-    path: '/'
+    path: '/',
+    waitOn: function() {
+      return this.subscribe("products");
+    }
   });
 
   this.route('dashboard', {

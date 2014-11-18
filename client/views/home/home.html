@@ -12,9 +12,9 @@
     <h3> Newest Products </h3>
     <div class="container-fluid">
 
-    {{>productTile}}
-        {{>productTile}}
-    {{>productTile}}
+    {{#each products}}
+      {{>productTile}}
+    {{/each}}
 
     </div>
   </div>
