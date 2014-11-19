@@ -3,7 +3,7 @@ Router.map(function() {
   this.route('home', {
     path: '/',
     waitOn: function() {
-      return this.subscribe("products");
+      return this.subscribe("someProducts", 8);
     }
   });
 
@@ -25,7 +25,6 @@ Router.map(function() {
 
   this.route('profile', {
     path: '/profile/:_id',
-    name: 'profile',
     data: function() {
       return Meteor.users.findOne(this.params._id);
     }
@@ -33,7 +32,6 @@ Router.map(function() {
 
   this.route('editProfile', {
     path: '/profile/:_id/edit',
-    name: 'editProfile',
     data: function() {
       return Meteor.users.findOne(this.params._id);
     }
@@ -43,6 +41,13 @@ Router.map(function() {
     path: '/create',
     data: function() {
       return Meteor.user();
+    }
+  });
+
+  this.route('productDetails', {
+    path: '/product/:_id',
+    data: function() {
+      return Meteor.products.findOne(this.params._id);
     }
   });
 
