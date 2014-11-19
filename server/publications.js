@@ -11,13 +11,13 @@ Meteor.publishComposite("items", function() {
     //     }
     //   }
     // ]
-  }
+  };
 });
 
-Meteor.publishComposite("products", function() {
+Meteor.publishComposite("someProducts", function(max) {
   return {
     find: function() {
-      return Products.find({},{sort: {createdAt: -1}, limit: 8});
+      return Products.find({},{sort: {createdAt: -1}, limit: max});
     }
     // ,
     // children: [
@@ -27,5 +27,21 @@ Meteor.publishComposite("products", function() {
     //     }
     //   }
     // ]
-  }
+  };
+});
+
+Meteor.publishComposite("allProducts", function() {
+  return {
+    find: function() {
+      return Products.find();
+    }
+    // ,
+    // children: [
+    //   {
+    //     find: function(item) {
+    //       return [];
+    //     }
+    //   }
+    // ]
+  };
 });
