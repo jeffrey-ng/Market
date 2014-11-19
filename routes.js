@@ -3,7 +3,7 @@ Router.map(function() {
   this.route('home', {
     path: '/',
     waitOn: function() {
-      return this.subscribe("products");
+      return this.subscribe("someProducts", 8);
     }
   });
 
@@ -41,6 +41,7 @@ Router.map(function() {
 
   this.route('createProduct', {
     path: '/create',
+    name: 'createProduct',
     data: function() {
       return Meteor.user();
     }
@@ -48,7 +49,7 @@ Router.map(function() {
 
   this.route('productDetails', {
     path: '/product/:_id',
-    name: 'product',
+    name: 'productDetails',
     data: function() {
       return Meteor.products.findOne(this.params._id);
     }
