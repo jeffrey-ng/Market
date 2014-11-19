@@ -2,7 +2,7 @@
 
     <div class="col-sm-3 col-lg-3 col-md-3">
         <div class="thumbnail well">
-            <img src="images/default_product.png" alt="" />
+            <a href="{{pathFor 'productDetails'}}"><img src="images/default_product.png" alt="{{name}}" /></a>
             <div class="caption">
             <h5 class="pull-right">${{price}}</h5>
             <h5><a href="{{pathFor 'productDetails'}}">{{name}}</a></h5>
