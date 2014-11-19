@@ -25,7 +25,6 @@ Router.map(function() {
 
   this.route('profile', {
     path: '/profile/:_id',
-    name: 'profile',
     data: function() {
       return Meteor.users.findOne(this.params._id);
     }
@@ -33,7 +32,6 @@ Router.map(function() {
 
   this.route('editProfile', {
     path: '/profile/:_id/edit',
-    name: 'editProfile',
     data: function() {
       return Meteor.users.findOne(this.params._id);
     }
@@ -41,7 +39,6 @@ Router.map(function() {
 
   this.route('createProduct', {
     path: '/create',
-    name: 'createProduct',
     data: function() {
       return Meteor.user();
     }
@@ -49,7 +46,6 @@ Router.map(function() {
 
   this.route('productDetails', {
     path: '/product/:_id',
-    name: 'productDetails',
     data: function() {
       return Meteor.products.findOne(this.params._id);
     }
