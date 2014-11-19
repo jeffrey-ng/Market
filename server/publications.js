@@ -45,3 +45,7 @@ Meteor.publishComposite("allProducts", function() {
     // ]
   };
 });
+
+Meteor.publish('productDetails', function(productId) {
+  return Products.find(productId);
+});

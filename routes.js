@@ -46,8 +46,9 @@ Router.map(function() {
 
   this.route('productDetails', {
     path: '/product/:_id',
+    waitOn: function(){ return Meteor.subscribe('productDetails',this.params._id)},
     data: function() {
-      return Meteor.products.findOne(this.params._id);
+      return Products.findOne(this.params._id);
     }
   });
 

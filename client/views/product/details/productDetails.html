@@ -1,20 +1,20 @@
 <template name="productDetails">
 
-    <img src="images/default_product.png" alt="{{name}}" />
+    <img src="/images/default_product.png" alt="{{name}}" />
     <h4>{{name}}</h4>
-    
+
     ${{price}}
-    
+
     <div class="productDescription">
     	Description:<br/>
     	{{description}}
     </div>
-    
+
     {{#if quantity}}
     	<div class="itemAvailability"> Quantity: {{quantity}} </div>
     	{{> buyProduct}}
     {{else}}
     	<div class="itemAvailability"> Sold Out! </div>
     {{/if}}
-    
+
 </template>
