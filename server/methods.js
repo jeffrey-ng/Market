@@ -1,15 +1,19 @@
 Meteor.methods({
     editProfile: function(userId, fullName, website, bio) {
-        Meteor.users.update({_id: userId}, {$set: {'profile.fullName': fullName, 'profile.website': website, 'profile.bio':bio}});
+        Meteor.users.update(
+            {_id: userId},
+            {$set: {'profile.fullName': fullName, 'profile.website': website, 'profile.bio':bio}}
+        );
 
     },
-    createProduct: function(userId, productName, price, number) {
-        console.log("insertgin");
+    createProduct: function(userId, productName, price, number, description) {
+        console.log("inserting");
         Products.insert({
             createdBy: userId,
             name: productName,
             quantity: number,
-            price: price
+            price: price,
+            description: description
         });
     }
 });
