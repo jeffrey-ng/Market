@@ -4,8 +4,5 @@ Template.productDetails.helpers({
     if (user) {
         return user.profile.fullName;
     }
-    else {
-        return "UNDEFINED.";
-    }
   }
 });

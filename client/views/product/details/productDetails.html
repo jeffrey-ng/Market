@@ -1,24 +1,28 @@
 <template name="productDetails">
+    <div class="productDetails">
+        <img src="/images/default_product.png" alt="{{name}}" />
+        <h4>{{name}}</h4>
 
-    <img src="/images/default_product.png" alt="{{name}}" />
-    <h4>{{name}}</h4>
+        ${{price}}
 
-    ${{price}}
+        <div class="productDescription"> Description: {{description}} </div>
 
-    <div class="productDescription"> Description: {{description}} </div>
+        <!-- Link to the user's public page. -->
+        {{#if owner}}
+            <div class="productOwner"> Posted by: <a href="#">{{owner}}</a></div>
+        {{else}}
+            <div class="productOwner"> Posted by: UNDEFINED</div>
+        {{/if}}
 
-    <!-- Link to the user's public page. -->
-    <div class="productOwner"> Posted by: <a href="#">{{owner}}</a></div>
+        {{#if quantity}}
+        	<div class="itemAvailability"> Quantity: {{quantity}} </div>
+        	{{> buyProduct}}
+        {{else}}
+        	<div class="itemAvailability"> Sold Out! </div>
+        {{/if}}
 
-    {{#if quantity}}
-    	<div class="itemAvailability"> Quantity: {{quantity}} </div>
-    	{{> buyProduct}}
-    {{else}}
-    	<div class="itemAvailability"> Sold Out! </div>
-    {{/if}}
-
-    {{#if currentUser}}
-        {{> messages}}
-    {{/if}}
-
+        {{#if currentUser}}
+            {{> messages}}
+        {{/if}}
+    </div>
 </template>
