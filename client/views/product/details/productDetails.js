@@ -1,6 +1,6 @@
 Template.productDetails.helpers({
   owner: function() {
-    var user = User.find({'_id': this.createdBy});
+    var user = Meteor.users.findOne(this.createdBy);
     if (user) {
         return user.profile.fullName;
     }
