@@ -6,8 +6,8 @@ Template.createProduct.events({
         var quantity = t.find('#productQuanitty').value;
         var description = t.find('#productDescription').value;
 
-        Meteor.call('createProduct', Meteor.userId(), name,price,quantity,description, function (error, result) {
-            if(error) console.log(error);
+        Meteor.call('createProduct', Meteor.userId(), name, price, quantity, description, function (error, result) {
+            if (error) console.log(error);
             Router.go('home');
         });
     }

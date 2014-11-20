@@ -5,16 +5,19 @@
 
     ${{price}}
 
-    <div class="productDescription">
-    	Description:<br/>
-    	{{description}}
-    </div>
+    <div class="productDescription"> Description: {{description}} </div>
+
+    <div class="productOwner"> Posted by: {{owner}} </div>
 
     {{#if quantity}}
     	<div class="itemAvailability"> Quantity: {{quantity}} </div>
     	{{> buyProduct}}
     {{else}}
     	<div class="itemAvailability"> Sold Out! </div>
+    {{/if}}
+
+    {{#if currentUser}}
+        {{> messages}}
     {{/if}}
 
 </template>
