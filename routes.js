@@ -54,6 +54,10 @@ Router.map(function() {
     }
   });
 
+  this.route('checkout', {
+    path: '/checkout'
+  });
+
   this.route('notFound', {
     path: '*',
     where: 'server',

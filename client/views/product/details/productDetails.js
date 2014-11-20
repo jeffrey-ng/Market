@@ -11,11 +11,16 @@ Template.productDetails.events({
         var productData = {_id: product._id, name: product.name, price: product.price, quantity: 1};
 
         var sid = Session.get('carts');
-        if (Session.get('carts')==null || Session.get('carts') == undefined || Carts.findOne({_id: Session.get('carts')}) == undefined) {
+        var mycart = Carts.findOne(sid);
+
+
+        console.log(sid);
+        console.log(mycart);
+        if (sid==null || sid == undefined || mycart == undefined) {
             console.log("creating cart");
             Meteor.call('createCart');
         } else {
-            Session.set('carts', Session.get('carts'));
+            Session.set('carts',sid);
         }
 
         var cart = Session.get('carts');

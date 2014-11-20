@@ -7,3 +7,4 @@ Template.home.helpers({
     return Products.find();
   }
 });
+

@@ -58,3 +58,11 @@ Meteor.publishComposite('productDetails', function (productId) {
     }]
   }
 });
+
+Meteor.publish('cart', function(cartId){
+  if(cartId === undefined){
+    return [];
+  } else {
+    return Carts.find({_id: cartId});
+  }
+});

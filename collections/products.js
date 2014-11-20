@@ -35,7 +35,7 @@ Schemas.Product = new SimpleSchema({
 
     createdBy: {
       type: String,
-      optional: false
+      optional: true //For now
     },
 
     createdAt: {
