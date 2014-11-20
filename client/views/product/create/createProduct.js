@@ -6,9 +6,14 @@ Template.createProduct.events({
         var quantity = t.find('#productQuanitty').value;
         var description = t.find('#productDescription').value;
 
-        Meteor.call('createProduct', Meteor.userId(), name, price, quantity, description, function (error, result) {
-            if (error) console.log(error);
-            Router.go('home');
-        });
+        if (name && price > 0 && quantity > 0 && description){
+            Meteor.call('createProduct', Meteor.userId(), name, price, quantity, description, function (error, result) {
+                if (error) console.log(error);
+                Router.go('home');
+            });
+        }
+        else {
+            console.log('name and description must be provided, price and quantity must be over 0');
+        }
     }
 });
