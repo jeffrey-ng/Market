@@ -1,0 +1,55 @@
+<template name ="checkout">
+    <div class="row">
+        <div class ="col-md-12">
+            {{#if cart.products}}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        {{#each products}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{price}}</td>
+                            <td>{{quantity}}</td>
+                            <td>
+                                <input type="number" id="updateQuantity_{{_id}}" value="{{quantity}}" min="0">
+                                <a href="#" class="btn btn-primary btn-xs" id="updateCart"> <i class="fa fa-refresh"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" id="removeProduct" class="btn btn-danger btn-xs" title="Remove Item"> <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-right lead text-success"> <strong>Total: {{total}}</strong>
+            </p>
+            <hr>
+            <p class="text-right">
+                <a href="#" class="btn btn-danger" id="clearCart">
+                    <i class="fa fa-times"></i>
+                    Update Cart
+                </a>
+            </p>
+            {{else}}
+            <h3>Cart is Empty</h3>
+            {{/if}}
+            <hr>
+            <p class="text-left">
+                <a href="{{ pathFor 'home'}}" class="btn btn-default">
+                    <i class="fa fa-arrow-left"></i>
+                    Continue Shopping
+                </a>
+            </p>
+        </div>
+    </div>
+</template>
