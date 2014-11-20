@@ -8,8 +8,12 @@
             <h5><a href="{{pathFor 'productDetails'}}">{{name}}</a></h5>
             </div>
             <div class="ratings">
-                <p class="pull-right"><small>Quantity: {{quantity}}</small></p>
-                 <p><a class="btn btn-default btn-xs" href="{{pathFor 'productDetails'}}" role="button"><i class="fa fa-info-circle"></i> Details</a></p>
+                {{#if quantity}}
+                    <p class="pull-right"><small>Quantity: {{quantity}}</small></p>
+                {{else}}
+                    <p class="pull-right"><small>Quantity: SOLD OUT</small></p>
+                {{/if}}
+                <p><a class="btn btn-default btn-xs" href="{{pathFor 'productDetails'}}" role="button"><i class="fa fa-info-circle"></i> Details</a></p>
             </div>
         </div>
     </div>
