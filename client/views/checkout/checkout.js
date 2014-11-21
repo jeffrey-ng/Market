@@ -16,3 +16,27 @@ Template.checkout.helpers({
     }
 
 });
+
+Template.checkout.events({
+    'click #updateCart': function(e, t) {
+        e.preventDefault();
+        var newQuantity = t.find('#updateQuantity_' + this._id).value;
+        if (parseInt(newQuantity) <= 0) {
+            Meteor.call('updateRemoveProductCart', Session.get('carts'), this._id);
+        } else {
+            Meteor.call('updateQuantityProductCart', Session.get('carts'), this._id, newQuantity);
+        }
+    },
+    'click #clearCart': function(e, t){
+        e.preventDefault();
+        var cart = Session.get('carts');
+        Meteor.call('removeCart', cart);
+        Session.set('carts', null);
+    },
+
+    'click #removeProduct': function (e, t) {
+        e.preventDefault();
+        var cart = Session.get('carts');
+        Meteor.call('updateRemoveProductCart', cart, this._id);
+    }
+});
