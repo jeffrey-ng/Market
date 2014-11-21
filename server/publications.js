@@ -30,6 +30,8 @@ Meteor.publishComposite("someProducts", function (max) {
   };
 });
 
+
+
 Meteor.publishComposite("allProducts", function () {
   return {
     find: function () {
@@ -46,6 +48,10 @@ Meteor.publishComposite("allProducts", function () {
   };
 });
 
+Meteor.publish('allUsers', function() {
+  return Meteor.users.find({});
+});
+
 Meteor.publishComposite('productDetails', function (productId) {
   return {
     find: function () {
@@ -60,9 +66,17 @@ Meteor.publishComposite('productDetails', function (productId) {
 });
 
 Meteor.publish('cart', function(cartId){
-  if(cartId === undefined){
+  if(cartId == undefined){
     return [];
   } else {
     return Carts.find({_id: cartId});
+  }
+});
+
+Meteor.publish('messages', function(productId) {
+  if (productId == undefined) {
+    return [];
+  } else {
+    return Messages.find({productId: productId},{sort: {createdAt: -1}});
   }
 });

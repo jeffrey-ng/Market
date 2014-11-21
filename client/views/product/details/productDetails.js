@@ -13,9 +13,6 @@ Template.productDetails.events({
         var sid = Session.get('carts');
         var mycart = Carts.findOne(sid);
 
-
-        console.log(sid);
-        console.log(mycart);
         if (sid==null || sid == undefined || mycart == undefined) {
             console.log("creating cart");
             Meteor.call('createCart');

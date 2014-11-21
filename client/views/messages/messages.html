@@ -1,3 +1,23 @@
 <template name="messages">
-	<div>CHAT TO CHAT ON THIS!</div>
+<div class="detailBox">
+<div class="titleBox">
+    <label> Comment Box</label>
+</div>
+    <div class="actionBox">
+        <ul class="commentList">
+            {{#each messages}}
+            <li>
+                <div class="commentText">
+                    <p class="">{{summarize value}}</p>
+                    <span class="date sub-text"> on {{prettifyDate createdAt}} : {{userName}}</span>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        {{#if currentUser}}
+        {{>entryField}}
+        {{/if}}
+    </div>
+</div>
+
 </template>

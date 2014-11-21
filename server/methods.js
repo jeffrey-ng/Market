@@ -40,4 +40,8 @@ Meteor.methods({
     updateQuantityProductCart: function(cartId, productId, newQuantity){
         Carts.update({_id: cartId, 'products._id': productId}, { $set: { 'products.$.quantity': newQuantity} });
     },
+
+    createMessage: function(userId, message, productId) {
+        Messages.insert({'createdBy': userId, 'value': message,'productId': productId});
+    }
 });
