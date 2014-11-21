@@ -6,10 +6,10 @@ Meteor.startup(function() {
   });
 
   Factory.define('product', Products, {
-    name: function() { return Fake.sentence();},
+    name: function() { return Fake.sentence(10);},
     price: function() { return _.random(1, 5); },
     quantity: function() { return _.random(1, 5); },
-    description: function() { return Fake.sentence();}
+    description: function() { return Fake.sentence(10);}
   });
 
   if (Products.find({}).count() === 0) {
