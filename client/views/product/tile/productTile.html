@@ -20,11 +20,11 @@
 </template> -->
 
 <template name="productTile">
-    <div class="productTile"><a href="{{pathFor 'productDetails'}}"><img src="/images/default_product.png" alt="{{name}}" /></a>
+    <div class="productTile"><a href="{{pathFor 'productDetails'}}"><img src="{{pic}}" alt="{{name}}"/></a>
         <div class="lowerProductTile">
             <h3>{{name}}</h3>
             <div class="price"><span>${{price}}</span></div>
-            <p>DESCRIPTION</p>
+            <p>{{description}}</p>
             <div id="productTileButton" class="button"><a href="{{pathFor 'productDetails'}}">View Product</a></div>
         </div>
     </div>

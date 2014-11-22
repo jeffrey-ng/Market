@@ -73,6 +73,7 @@ mongo-livedata@1.0.6
 mongo@1.0.8
 mrt:moment@2.8.1
 mrt:underscore-string-latest@2.3.3
+natestrauser:filepicker-plus@1.2.3
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
