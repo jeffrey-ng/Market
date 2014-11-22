@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "stripe": {}
+    },
+    "packages": {
+      "stripe": {
+        "git": "https://github.com/appleifreak/stripe-meteor.git",
+        "tag": "v1.5.5",
+        "commit": "30874f53c864c31ae1f8818e21ee113ea5c99099"
+      }
+    }
+  }
+}
