@@ -35,7 +35,7 @@ Meteor.publishComposite("someProducts", function (max) {
 Meteor.publishComposite("allProducts", function () {
   return {
     find: function () {
-      return Products.find();
+      return Products.find({});
     }
     // ,
     // children: [

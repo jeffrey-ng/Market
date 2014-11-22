@@ -4,12 +4,15 @@
       <h1>Dashboard</h1>
     </div>
 
-    <ul class="list-group">
-      {{#each items}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
-      {{/each}}
-    </ul>
-    <p>Item: <input type="text" id="itemInput"></p>
+    <ul class="productList">
+    {{#each products}}
+    <li class="productList">
+    {{>productTile}}
+  </li>
+  {{/each}}
+</ul>
+
+
 
   </div>
 </template>

@@ -11,7 +11,7 @@ Router.map(function() {
     path: '/dashboard',
     loginRequired: 'entrySignIn',
     waitOn: function() {
-      return this.subscribe("items");
+      return this.subscribe("allProducts");
     },
     data: {
       items: Items.find({})

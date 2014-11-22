@@ -2,6 +2,13 @@ Template.dashboard.rendered = function() {
 
 };
 
+Template.dashboard.helpers({
+    products: function() {
+        return Products.find();
+
+    }
+});
+
 Template.dashboard.events = {
     'keydown input#itemInput' : function (event) {
         if (event.which == 13) {//enter key
