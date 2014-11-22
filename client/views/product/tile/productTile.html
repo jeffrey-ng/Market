@@ -23,7 +23,7 @@
     <div class="productTile"><a href="{{pathFor 'productDetails'}}"><img src="{{pic}}"/></a>
         <div class="lowerProductTile">
             <h3>{{name}}</h3>
-            <div class="price"><span>${{price}}</span></div>
+            <div class="price"><span>{{formatMoney price}}</span></div>
             <p>{{description}}</p>
             <div id="productTileButton" class="button"><a href="{{pathFor 'productDetails'}}">View Product</a></div>
         </div>

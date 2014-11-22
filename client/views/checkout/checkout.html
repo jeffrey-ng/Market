@@ -16,7 +16,7 @@
                         {{#each products}}
                         <tr>
                             <td>{{name}}</td>
-                            <td>{{price}}</td>
+                            <td>{{formatMoney price}}</td>
                             <td>{{quantity}}</td>
                             <td>
                                 <input type="number" id="updateQuantity_{{_id}}" value="{{quantity}}" min="0">
@@ -32,7 +32,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="text-right lead text-success"> <strong>Total: {{total}}</strong>
+            <p class="text-right lead text-success"> <strong>Total: {{formatMoney total}}</strong>
             </p>
             <hr>
             <div class="text-right">
@@ -63,5 +63,7 @@
 </template>
 
 <template name="payment">
-    <button>Pay</button>
+
+    <button class="btn btn-success">
+    <i class="fa fa-cc-stripe"></i> Pay</button>
 </template>

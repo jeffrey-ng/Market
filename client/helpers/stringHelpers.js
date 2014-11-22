@@ -10,3 +10,8 @@ Template.registerHelper('summarize', function(string) {
 Template.registerHelper('prettifyDate', function(timestamp) {
     return moment(timestamp).format('MM-DD-YYYY');
 });
+
+UI.registerHelper('formatMoney', function( number) {
+    return accounting.formatMoney(number);
+});
+

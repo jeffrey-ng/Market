@@ -1,3 +1,4 @@
+
 Template.checkout.helpers({
     cart: function(){
     return Carts.findOne({_id: Session.get('carts')});
@@ -9,13 +10,19 @@ Template.checkout.helpers({
 
     total: function () {
         var total = 0.0;
+        var count =0;
         _.each(Carts.findOne({_id: Session.get('carts')}).products, function (product) {
             total += product.price * product.quantity;
+            count +=1;
         });
+        Session.set('checkoutTotal',total);
+        Session.set('checkoutItemCount', count);
         return total;
     }
 
 });
+
+
 
 Template.checkout.events({
     'click #updateCart': function(e, t) {
@@ -48,9 +55,9 @@ Template.payment.events({
 
         StripeCheckout.open({
             key: 'pk_test_rcY2XmBWLtDSLwUJggmP4OVU',
-            amount: 20,
+            amount: Session.get('checkoutTotal') * 100,
             name: 'The Store',
-            description: 'A whole bag of awesome ($50.00)',
+            description: Session.get('checkoutItemCount') + ' Items',
             panelLabel: 'Pay Now',
             token: function(res) {
                 // Do something with res.id
