@@ -1,15 +1,44 @@
 <template name="explore">
+<div class="container">
   <div class="explore">
     <div class="page-header">
       <h1>Explore</h1>
     </div>
 
-    <ul class="list-group">
-      {{#each user}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
+    <div class="searchInput">
+      {{> esInput index="products" placeholder="Search Products" }}
+    </div>
+
+    {{#ifEsInputIsEmpty index="products"}}
+    <ul class="productList">
+      {{#each products}}
+      <li class="productList">{{>productTile}}</li>
       {{/each}}
     </ul>
-    <p>Item: <input type="text" id="itemInput"></p>
+    {{/ifEsInputIsEmpty}}
+
+
+    {{#ifEsIsSearching index="products"}}
+    <div> Loading... </div>
+    {{else}}
+    <div class="resultWrapper">
+    <ul class="productList">
+      {{#esEach index="products"}}
+      <li class = "productList">{{> productTile}}</li>
+      {{/esEach}}
+    </ul>
+    </div>
+
+    {{> esLoadMoreButton index="products"}}
+     {{/ifEsIsSearching}}
+
+
+
+
+    {{#ifEsHasNoResults index="products"}}
+    <div class="no-results">No results found!</div>
+    {{/ifEsHasNoResults}}
 
   </div>
+</div>
 </template>

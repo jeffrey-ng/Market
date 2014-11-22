@@ -1,8 +1,8 @@
-Template.dashboard.rendered = function() {
+Template.explore.rendered = function() {
 
 };
 
-Template.dashboard.helpers({
+Template.explore.helpers({
     products: function() {
         return Products.find();
 

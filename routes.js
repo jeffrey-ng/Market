@@ -7,18 +7,14 @@ Router.map(function() {
     }
   });
 
-  this.route('dashboard', {
-    path: '/dashboard',
-    loginRequired: 'entrySignIn',
+  this.route('explore', {
+    path: '/explore',
     waitOn: function() {
       return this.subscribe("allProducts");
     },
-    data: {
-      items: Items.find({})
-    },
     onAfterAction: function() {
       SEO.set({
-        title: 'Dashboard | ' + SEO.settings.title
+        title: 'Explore | ' + SEO.settings.title
       });
     }
   });
