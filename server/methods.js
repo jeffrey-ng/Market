@@ -6,14 +6,15 @@ Meteor.methods({
             );
 
     },
-    createProduct: function(userId, productName, price, number, description) {
+    createProduct: function(userId, productName, price, number, description, pic) {
         console.log("inserting");
         Products.insert({
             createdBy: userId,
             name: productName,
             quantity: number,
             price: price,
-            description: description
+            description: description,
+            pic: pic
         });
     },
 
