@@ -9,7 +9,7 @@
             <li>
                 <div class="commentText">
                     <p class="">{{summarize value}}</p>
-                    <span class="date sub-text"> on {{prettifyDate createdAt}} : {{userName}}</span>
+                    <span class="date sub-text"> on {{prettifyDate createdAt}} : <a href="{{pathFor 'profile' _id=createdBy}}">{{userName}}</a></span>
                 </div>
             </li>
             {{/each}}

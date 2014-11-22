@@ -25,6 +25,9 @@ Router.map(function() {
 
   this.route('profile', {
     path: '/profile/:_id',
+    waitOn: function() {
+      return Meteor.subscribe('allUsers');
+    },
     data: function() {
       return Meteor.users.findOne(this.params._id);
     }

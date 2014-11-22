@@ -12,17 +12,22 @@
                     <div class = "col-md-7">
                         <div class="product-title">{{name}}</div>
                         <div class="product-desc">{{description}}</div>
+                        <div class="product-owner"> <a href="{{pathFor 'profile' _id=createdBy}}">{{userName}}</a></div>
                         <hr>
                         <div class="product-price">${{price}}</div>
                         {{#if quantity}}
                         <div class="product-quantity">Quantity: {{quantity}}</div>
                          <div class="btn-group cart">
+                            {{#if currentUser}}
                             <button type="button" class = "btn btn-success" id="cart" >Add to cart</button>
+                            {{else}}
+                                <button type="button" class = "btn btn-success" disabled="disabled" id="cart" >Login to Buy</button>
+                            {{/if}}
                         </div>
                         {{else}}
                         <div class="product-quantity">SOLD OUT</div>
                          <div class="btn-group cart">
-                            <button type="button" class = "btn btn-success" disabled="disabled" id="cart" >Add to cart</button>
+                            <button type="button" class = "btn btn-success" disabled="disabled" id="cart" >Sold Out</button>
                         </div>
                         {{/if}}
 

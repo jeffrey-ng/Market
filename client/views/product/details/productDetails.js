@@ -5,6 +5,12 @@ Meteor.methods({
     }
 });
 
+Template.productDetails.helpers({
+    userName: function() {
+        return Meteor.users.findOne({_id: this.createdBy}).profile.fullName;
+    }
+});
+
 Template.productDetails.events({
     'click #cart': function() {
         var product = Products.findOne({_id: this._id});
