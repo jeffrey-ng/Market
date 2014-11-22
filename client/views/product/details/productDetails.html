@@ -1,27 +1,29 @@
 <template name="productDetails">
-    <div class="productDetails">
-        <img src="/images/default_product.png" alt="{{name}}" />
-        <h4>{{name}}</h4>
-
-        ${{price}}
-
-        <div class="productDescription"> Description: {{description}} </div>
-
-        <!-- Link to the user's public page. -->
-        {{#if owner}}
-            <div class="productOwner"> Posted by: <a href="#">{{owner}}</a></div>
-        {{else}}
-            <div class="productOwner"> Posted by: UNDEFINED</div>
-        {{/if}}
-
-    {{#if quantity}}
-    	<div class="itemAvailability"> Quantity: {{quantity}} </div>
-        <a class= "btn btn-info" role="button" id="cart"><i class="fa fa-plus-circle"></i> Add to Cart</a>
-    {{else}}
-    	<div class="itemAvailability"> Sold Out! </div>
-    {{/if}}
-
-        {{>messages}}
-
+<div class="container-fluid">
+    <div class = "content-wrapper">
+        <div class="item-container">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="product col-md-5 service-image-left">
+                        <center>
+                            <img src="/images/default_product.png" alt="{{name}}" />
+                        </center>
+                    </div>
+                    <div class = "col-md-7">
+                        <div class="product-title">{{name}}</div>
+                        <div class="product-desc">{{description}}</div>
+                        <hr>
+                        <div class="product-price">${{price}}</div>
+                        <div class="product-quantity">Quantity: {{quantity}}</div>
+                        <div class="btn-group cart">
+                            <button type="button" class = "btn btn-success">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="container-fluid">{{>messages}}</div>
+</div>
+
 </template>
