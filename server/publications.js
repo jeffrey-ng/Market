@@ -77,6 +77,6 @@ Meteor.publish('messages', function(productId) {
   if (productId == undefined) {
     return [];
   } else {
-    return Messages.find({productId: productId},{sort: {createdAt: -1}});
+    return Messages.find({productId: productId},{sort: {createdAt: 1}});
   }
 });
