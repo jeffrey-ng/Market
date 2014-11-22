@@ -3,15 +3,17 @@
     <div class="col-md-8">
       <h3>Create New Product</h3>
       <form role="form" id="createProduct">
+        <div>
+          <img id="pimage" src='{{imgLink}}'/> <p><button id="upload">Upload image</button></p>
+        </div>
         <div class="form-group">
-          <p><button id="upload">Upload image</button></p>
           <label for="productName">Name</label>
           <input type="text" class="form-control" id="productName" placeholder="Name">
           <label for="productPrice">Price</label>
           <input type="text" class="form-control" id="productPrice" placeholder="Price">
           <label for="productQuanitty">Quantity</label>
           <input type="text" class="form-control" id="productQuanitty" placeholder="Quantity">
-          <label for="productDescription">Description</label> 
+          <label for="productDescription">Description</label>
           <br />
           <textarea rows="5" cols="50" class="form-control" id="productDescription" placeholder="Description" form="createProduct"></textarea>
         </div>

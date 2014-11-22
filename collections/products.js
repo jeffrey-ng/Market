@@ -1,6 +1,7 @@
 Products = new Mongo.Collection('products');
 // GroundDB(Products);
 
+
 Schemas = {};
 
 Schemas.Product = new SimpleSchema({
@@ -33,6 +34,11 @@ Schemas.Product = new SimpleSchema({
       label: 'Quantity'
     },
 
+    pic: {
+      type: String,
+      optional: true
+    },
+
     createdBy: {
       type: String,
       optional: true //For now
@@ -53,4 +59,4 @@ Schemas.Product = new SimpleSchema({
 });
 
 Products.attachSchema(Schemas.Product);
-
+Products.initEasySearch('name');

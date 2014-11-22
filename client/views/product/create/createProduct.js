@@ -1,26 +1,27 @@
+Template.createProduct.created = function() {
+    loadFilePicker('Ad9QH1b3WRwqRwN8Dp6QJz');
+    Session.set('pImage', '/images/default_product.png');
+};
+
+
+Template.createProduct.helpers({
+    imgLink: function() {
+        return Session.get('pImage');
+    }
+});
+
 Template.createProduct.events({
-    'click #upload': function() {
+    'click #upload': function(e,t) {
         filepicker.pick(
         {
             mimetypes: ['image/gif', 'image/jpeg', 'image/png'],
             multiple: false
         },
         function(InkBlob) {
-            var image = Images.findOne({userId: Meteor.userId() });
-            if(image) {
-                Images.update({_id: image._id},
-                {
-                    $set:{
-                        filepickerId:_.last(InkBlob.url.split("/"))
-                    }
-                });
-            }
-            else {
-                Images.insert({
-                    userId: Meteor.userId(), 
-                    filepickerId: _.last(InkBlob.url.split("/"))
-                });
-            }
+            console.log(InkBlob.url);
+            pictureUrl = InkBlob.url;
+            Session.set('pImage', pictureUrl);
+
         },
         function(FPError) {
             if(FPError && FPError.code !== 101)
@@ -34,7 +35,7 @@ Template.createProduct.events({
         var price = t.find('#productPrice').value;
         var quantity = t.find('#productQuanitty').value;
         var description = t.find('#productDescription').value;
-        var pic = '{{image}}.url';      //get URL of image
+        var pic = pictureUrl;     //get URL of image
 
         if (name && price > 0 && quantity > 0 && description){
             Meteor.call('createProduct', Meteor.userId(), name, price, quantity, description, pic, function (error, result) {
