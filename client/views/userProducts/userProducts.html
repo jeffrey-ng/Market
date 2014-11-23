@@ -1,0 +1,44 @@
+<template name="userProducts">
+<div class="container">
+  <div class="userProducts">
+    <div class="page-header">
+      <h1>{{profile.fullName}}'s products</h1>
+    </div>
+
+    <div class="searchInput">
+      {{> esInput index="products" placeholder="Search Products" }}
+    </div>
+
+    {{#ifEsInputIsEmpty index="products"}}
+    <ul class="productList">
+      {{#each products}}
+      <li class="productList">{{>productTile}}</li>
+      {{/each}}
+    </ul>
+    {{/ifEsInputIsEmpty}}
+
+
+    {{#ifEsIsSearching index="products"}}
+    <div> Loading... </div>
+    {{else}}
+    <div class="resultWrapper">
+    <ul class="productList">
+      {{#esEach index="products"}}
+      <li class = "productList">{{> productTile}}</li>
+      {{/esEach}}
+    </ul>
+    </div>
+
+    {{> esLoadMoreButton index="products"}}
+     {{/ifEsIsSearching}}
+
+
+
+
+    {{#ifEsHasNoResults index="products"}}
+    <div class="no-results">No results found!</div>
+    {{/ifEsHasNoResults}}
+
+  </div>
+</div>
+</template>
