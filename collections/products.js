@@ -59,4 +59,6 @@ Schemas.Product = new SimpleSchema({
 });
 
 Products.attachSchema(Schemas.Product);
-Products.initEasySearch('name');
+Products.initEasySearch(['description','name'], {
+  'limit': 10
+});
