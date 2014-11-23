@@ -4,9 +4,13 @@
       <div class="container">
         <div class= "row">
           <div class="col-lg-12">
-            <div class="into-message">
+            <div class="intro-message">
+              {{#if currentUser}}
               <h1>Hello {{currentUser.profile.fullName}}</h1>
               <h3>Welcome to {{siteTitle}}</h3>
+              {{else}}
+              <h1>Welcome to {{siteTitle}}</h1>
+              {{/if}}
             </div>
          </div>
         </div>
