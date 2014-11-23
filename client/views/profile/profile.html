@@ -7,8 +7,20 @@
       <p><strong>Email:</strong> {{email}}</p>
       <p><strong>Website:</strong> {{profile.website}}</p>
       <p><strong>Bio:</strong> {{profile.bio}}</p>
-      <p><strong>Products Posted:</strong><a class="{{ isActivePath 'userProducts' }}" href="{{ pathFor 'userProducts' }}">{{posted}}</a></p>
+      <!-- <p><strong>Products Posted:</strong><a class="{{ isActivePath 'userProducts' }}" href="{{ pathFor 'userProducts' }}">{{posted}}</a></p> -->
       <hr>
+
+      <p><strong> My Products</strong></p>
+      <div class = "row">
+        <div class="col-md-6">
+      <div class="list-group">
+      {{#each getMyPosted}}
+      <a href= "{{pathFor 'productDetails'}}" class= "list-group-item"><span class="badge">{{quantity}}</span>{{name}}</a>
+      {{/each}}
+    </div>
+      </div>
+    </div>
+
       {{#if isOwner}}
         <p><a href="{{ pathFor 'editProfile'}}" class="btn btn-default btn-xs"><i class="fa fa-pencil-square-o"></i> Edit Info</a></p>
       {{/if}}

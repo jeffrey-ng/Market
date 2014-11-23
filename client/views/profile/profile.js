@@ -9,5 +9,10 @@ Template.profile.helpers({
   },
   posted: function () {
     return Products.find({createdBy: this._id}).count();
+  },
+
+  getMyPosted: function () {
+    return Products.find({createdBy: this._id});
   }
+
 });
