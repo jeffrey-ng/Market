@@ -22,7 +22,7 @@ Router.map(function() {
   this.route('profile', {
     path: '/profile/:_id',
     waitOn: function() {
-      return Meteor.subscribe('allUsers');
+      return [Meteor.subscribe('allUsers'), Meteor.subscribe('allProducts')];
     },
     data: function() {
       return Meteor.users.findOne(this.params._id);

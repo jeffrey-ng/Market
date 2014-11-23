@@ -12,7 +12,7 @@
                     <div class = "col-md-7">
                         <div class="product-title">{{name}}</div>
                         <div class="product-desc">{{description}}</div>
-                        <div class="product-owner"> <a href="{{pathFor 'profile' _id=createdBy}}">{{userName}}</a></div>
+                        <div class="product-owner"> Posted by: <a href="{{pathFor 'profile' _id=createdBy}}">{{userName}}</a></div>
                         <hr>
                         <div class="product-price">{{formatMoney price}}</div>
                         {{#if quantity}}
