@@ -19,6 +19,21 @@ Router.map(function() {
     }
   });
 
+  this.route('userProducts', {
+    path: '/userProducts/:_id',
+    waitOn: function() {
+      return [this.subscribe('allProducts'), this.subscribe('allUsers')];
+    },
+    data: function() {
+      return Meteor.users.findOne(this.params._id);
+    },
+    onAfterAction: function() {
+      SEO.set({
+        title: 'userProducts | ' + SEO.settings.title
+      });
+    }
+  });
+
   this.route('profile', {
     path: '/profile/:_id',
     waitOn: function() {
