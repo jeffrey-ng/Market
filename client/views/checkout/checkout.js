@@ -50,9 +50,8 @@ Template.checkout.events({
 });
 
 Template.payment.events({
- 'click button': function(e) {
+ 'click #stripe': function(e,t) {
         e.preventDefault();
-
         StripeCheckout.open({
             key: 'pk_test_rcY2XmBWLtDSLwUJggmP4OVU',
             amount: Session.get('checkoutTotal') * 100,
@@ -67,20 +66,19 @@ Template.payment.events({
         });
     },
 
-     'click #stripePayment': function(e) {
-        e.preventDefault();
+    'click #demo': function(e,t) {
+     e.preventDefault();
+     var cart = Carts.findOne({_id: Session.get('carts')});
 
-         StripeCheckout.open({
-            key: 'pk_test_rcY2XmBWLtDSLwUJggmP4OVU',
-            amount: 20,
-            name: 'The market',
-            description: ' Items',
-            panelLabel: 'Pay Now',
-             token: function(res) {
-                // Do something with res.id
-                // Store it in Mongo and/or create a charge on the server-side
-                console.info(res);
+        Meteor.call('newOrder', Meteor.userId(),cart.products, function( error, result) {
+            if (error) {
+                Errors.throw(error.message);
             }
+            var cartId = Session.get('carts');
+            Meteor.call('removeCart', cartId);
+            Session.set('carts', null);
+            Router.go('showOrder',{_id: result});
         });
     }
-})
+
+});

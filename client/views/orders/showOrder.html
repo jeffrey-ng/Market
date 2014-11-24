@@ -1,0 +1,34 @@
+<template name="showOrder">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Order <small>{{_id}}</small></h2>
+            <p class="lead">
+                Data of purchase: {{ prettifyDate createdAt}}<br>
+            </p>
+            <br><br>
+            <table class="table">
+                <thead>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                    <tr>
+                    <td><a href ="{{pathFor 'productDetails'}}">{{name}}</a></td>
+                        <td>{{ formatMoney price}}</td>
+                        <td>{{quantity}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <p class="text-right lead text-success"><strong>Total: {{total this.products}}</strong></p>
+            <hr>
+            <p class="text-left">
+                <a href="{{ pathFor 'order'}}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Return to my Orders</a>
+            </p>
+        </div>
+    </div>
+</div>
+</template>

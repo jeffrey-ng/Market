@@ -78,6 +78,20 @@ Router.map(function() {
     }
   });
 
+  this.route('order', {
+    path: '/order',
+    waitOn: function() {
+      return Meteor.subscribe('orders', Meteor.userId());
+    }
+  });
+
+  this.route('showOrder', {
+    path: '/order/:_id',
+    waitOn: function(){ return Meteor.subscribe('showOrder', Meteor.userId(), this.params._id); },
+    data: function(){ return Orders.findOne({userId: Meteor.userId(), _id: this.params._id}); }
+  });
+
+
   this.route('checkout', {
     path: '/checkout'
   });

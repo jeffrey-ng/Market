@@ -21,8 +21,8 @@ Meteor.methods({
         console.log("edit");
         Products.update(
             {_id: productId},
-             {$set: {'name': productName, 'quantity': number, 'price': price, 'description': description, 'pic': pic}}
-             );
+            {$set: {'name': productName, 'quantity': number, 'price': price, 'description': description, 'pic': pic}}
+            );
     },
 
     createCart: function () {
@@ -51,5 +51,16 @@ Meteor.methods({
 
     createMessage: function(userId, message, productId) {
         Messages.insert({'createdBy': userId, 'value': message,'productId': productId});
+    },
+
+    newOrder: function(userId, products) {
+        var user = Meteor.users.findOne({_id: userId});
+        console.log(user);
+        var total = 0.0;
+        _.map(products, function(product){
+          total += product.quantity * product.price;
+          Products.update({_id: product._id}, {$inc: {quantity: -(product.quantity)}});
+        });
+        return Orders.insert({userId: user._id, userFullName: user.profile.fullName, products: products});
     }
 });

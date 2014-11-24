@@ -22,3 +22,11 @@ UI.registerHelper('formatMoney', function( number) {
     return accounting.formatMoney(number);
 });
 
+UI.registerHelper('total', function (products) {
+    var total = 0.0;
+    _.map(this.products, function (product) {
+      total += product.price * product.quantity;
+    });
+    return accounting.formatMoney(total);
+})
+

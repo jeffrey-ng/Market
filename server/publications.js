@@ -77,6 +77,14 @@ Meteor.publish('messages', function(productId) {
   if (productId == undefined) {
     return [];
   } else {
-    return Messages.find({productId: productId},{sort: {createdAt: 1}});
+    return Messages.find({productId: productId},{sort: {createdAt: -1}});
   }
+});
+
+Meteor.publish('orders', function (userId) {
+  return Orders.find({userId: userId});
+});
+
+Meteor.publish('showOrder', function (userId, orderId) {
+  return Orders.find({_id: orderId, userId: userId});
 });
