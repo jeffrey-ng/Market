@@ -13,6 +13,10 @@ Template.profile.helpers({
 
   getMyPosted: function () {
     return Products.find({createdBy: this._id});
+  },
+  isOwnedByMe: function() {
+    console.log(this.createdBy)
+    return this.createdBy == Meteor.userId();
   }
 
 });
