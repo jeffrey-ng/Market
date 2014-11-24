@@ -1,16 +1,21 @@
-Template.createProduct.created = function() {
+Template.editProduct.created = function() {
     loadFilePicker('Ad9QH1b3WRwqRwN8Dp6QJz');
-    Session.set('pImage', '/images/default_product.png');
+};
+
+Template.editProduct.rendered = function() {
+    console.log(this.data.pic);
+    Session.set('pImage', this.data.pic);
+
 };
 
 
-Template.createProduct.helpers({
+Template.editProduct.helpers({
     imgLink: function() {
         return Session.get('pImage');
     }
 });
 
-Template.createProduct.events({
+Template.editProduct.events({
     'click #upload': function(e,t) {
         filepicker.pick(
         {
@@ -29,19 +34,19 @@ Template.createProduct.events({
         }
         );
     },
-    'submit form#createProduct': function (e, t) {
+    'submit form#editProduct': function (e, t) {
         e.preventDefault();
         var name = t.find('#productName').value;
         var price = t.find('#productPrice').value;
         var quantity = t.find('#productQuanitty').value;
         var description = t.find('#productDescription').value;
         var pic = Session.get('pImage');     //get URL of image
+        var pId = this._id;
 
         if (name && price > 0 && quantity > 0 && description){
-            Meteor.call('createProduct', Meteor.userId(), name, price, quantity, description, pic, function (error, result) {
+            Meteor.call('editProduct', pId , name, price, quantity, description, pic, function (error, result) {
                 if (error) console.log(error);
-            Router.go('productDetails', {_id: result});
-
+                Router.go('productDetails', {_id: pId});
             });
         }
         else {

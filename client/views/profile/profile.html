@@ -15,7 +15,24 @@
         <div class="col-md-6">
       <div class="list-group">
       {{#each getMyPosted}}
-      <a href= "{{pathFor 'productDetails'}}" class= "list-group-item"><span class="badge">{{quantity}}</span>{{name}}</a>
+      <a href= "{{pathFor 'productDetails'}}" class= "list-group-item clearfix">
+      {{nameSummarize name}}
+      <span class="pull-right">
+            <span class="badge">{{quantity}}</span>
+
+<div class="btn-group">
+        <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-cog"></i>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="{{pathFor 'editProduct'}}">Edit</a></li>
+          <li><a id="removeProduct" href="#">Delete</a></li>
+        </ul>
+      </div>
+      </span>
+      </a>
+      {{else}}
+      <a href="#" class = "list-group-item disabled"> No Products</a>
       {{/each}}
     </div>
       </div>

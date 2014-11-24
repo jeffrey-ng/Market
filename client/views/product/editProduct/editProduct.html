@@ -1,0 +1,28 @@
+<template name="editProduct">
+<div class="container">
+<div class="row">
+    <div class="col-md-8">
+      <h3>Edit Product</h3>
+      <form role="form" id="editProduct">
+        <div>
+          <img src='{{imgLink}}'/> <p><button id="upload">Upload image</button></p>
+        </div>
+        <div class="form-group">
+          <label for="productName">Name</label>
+          <input type="text" class="form-control" id="productName" value="{{name}}">
+          <label for="productPrice">Price</label>
+          <input type="text" class="form-control" id="productPrice" value="{{price}}">
+          <label for="productQuanitty">Quantity</label>
+          <input type="text" class="form-control" id="productQuanitty" value="{{quantity}}">
+          <label for="productDescription">Description</label>
+          <br />
+          <textarea rows="5" cols="50" class="form-control" id="productDescription" value="jkj" form="editProduct"></textarea>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-default"><i class="fa fa-floppy-o"></i> Save</button>
+        <a href="{{ pathFor 'home'}}" class="btn btn-danger"><i class="fa fa-times"></i> Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+</template>

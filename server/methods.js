@@ -8,7 +8,7 @@ Meteor.methods({
     },
     createProduct: function(userId, productName, price, number, description, pic) {
         console.log("inserting");
-        Products.insert({
+        return Products.insert({
             createdBy: userId,
             name: productName,
             quantity: number,
@@ -16,6 +16,13 @@ Meteor.methods({
             description: description,
             pic: pic
         });
+    },
+    editProduct: function(productId, productName, price, number, description, pic) {
+        console.log("edit");
+        Products.update(
+            {_id: productId},
+             {$set: {'name': productName, 'quantity': number, 'price': price, 'description': description, 'pic': pic}}
+             );
     },
 
     createCart: function () {

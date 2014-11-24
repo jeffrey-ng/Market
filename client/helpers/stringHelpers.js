@@ -7,6 +7,13 @@ Template.registerHelper('summarize', function(string) {
   return _(cleanString).truncate(80);
 });
 
+
+Template.registerHelper('nameSummarize', function(string) {
+  var cleanString = _(string).stripTags();
+  return _(cleanString).truncate(30);
+});
+
+
 Template.registerHelper('prettifyDate', function(timestamp) {
     return moment(timestamp).format('MM-DD-YYYY');
 });
