@@ -55,7 +55,6 @@ Meteor.methods({
 
     newOrder: function(userId, products) {
         var user = Meteor.users.findOne({_id: userId});
-        console.log(user);
         var total = 0.0;
         _.map(products, function(product){
           total += product.quantity * product.price;
